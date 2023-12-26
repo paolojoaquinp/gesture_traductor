@@ -18,7 +18,7 @@ class ILoveYouRepositoryImpl implements GestureRepository {
 
   @override
   String getGestureName() {
-    return 'ILoveYou';
+    return 'Te quiero';
   }
 
     @override
@@ -120,5 +120,10 @@ class ILoveYouRepositoryImpl implements GestureRepository {
   @override
   bool verifyGesture() {
     return thumbFingerVerify() && indexFingerVerify() && middleFingerVerify() && ringFingerVerify() && pinkyFingerVerify();
+  }
+  
+  @override
+  String getGestureSound() {
+    return 'sounds/i_love_you.wav';
   }
 }

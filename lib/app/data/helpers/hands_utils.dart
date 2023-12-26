@@ -1,5 +1,6 @@
 import 'dart:math' as math;
 
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 
 
@@ -20,4 +21,10 @@ double angle(
       }
       return degrees;
   }
+
+
+Future<void> playAudio(String urlSound) async {
+  final player = AudioPlayer();
+  await player.play(AssetSource(urlSound));
+}
 

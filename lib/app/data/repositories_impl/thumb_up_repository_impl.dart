@@ -119,4 +119,9 @@ class ThumbUpRepositoryImpl implements GestureRepository {
   bool verifyGesture() {
     return thumbFingerVerify() && indexFingerVerify() && middleFingerVerify() && ringFingerVerify() && pinkyFingerVerify();
   }
+  
+  @override
+  String getGestureSound() { 
+    return 'sounds/muy-bien.wav';
+  }
 }

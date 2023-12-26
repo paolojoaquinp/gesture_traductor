@@ -18,7 +18,7 @@ class PeaceRepositoryImpl implements GestureRepository {
 
   @override
   String getGestureName() {
-    return 'Peace gesture';
+    return 'Paz';
   }
 
     @override
@@ -118,5 +118,10 @@ class PeaceRepositoryImpl implements GestureRepository {
   @override
   bool verifyGesture() {
     return thumbFingerVerify() && indexFingerVerify() && middleFingerVerify() && ringFingerVerify() && pinkyFingerVerify();
+  }
+  
+  @override
+  String getGestureSound() {
+    return 'sounds/dos.wav';
   }
 }

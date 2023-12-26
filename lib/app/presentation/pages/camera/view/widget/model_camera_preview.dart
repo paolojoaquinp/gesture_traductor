@@ -1,14 +1,17 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_with_mediapipe_1/app/data/repositories_impl/closed_fist_repository_impl.dart';
 import 'package:flutter_with_mediapipe_1/app/data/repositories_impl/i_love_you_repository_impl.dart';
 import 'package:flutter_with_mediapipe_1/app/data/repositories_impl/peace_repository_impl.dart';
 import 'package:flutter_with_mediapipe_1/app/data/repositories_impl/pointing_up_repository_impl.dart';
+import 'package:flutter_with_mediapipe_1/app/data/repositories_impl/three_repository_impl.dart';
 import 'package:flutter_with_mediapipe_1/app/data/repositories_impl/thumb_up_repository_impl.dart';
+import 'package:flutter_with_mediapipe_1/app/presentation/pages/camera/bloc/camera_bloc.dart';
 
-import '../../../../data/services/model_inference_service.dart';
-import '../../../../data/services/service_locator.dart';
-import '../../../../data/helpers/hands_utils.dart' as utils;
+import '../../../../../data/services/model_inference_service.dart';
+import '../../../../../data/services/service_locator.dart';
+import '../../../../../data/helpers/hands_utils.dart' as utils;
 
 import 'face_detection_painter.dart';
 import 'face_mesh_painter.dart';
@@ -127,6 +130,7 @@ class _ModelPainterState extends State<_ModelPainter> {
   Offset? p4;
   Offset? p5;
 
+
   @override
   void didUpdateWidget(covariant _ModelPainter oldWidget) {
     if(widget.customPainter != oldWidget.customPainter && (widget.customPainter is HandsPainter)) {
@@ -142,12 +146,20 @@ class _ModelPainterState extends State<_ModelPainter> {
           PeaceRepositoryImpl(points: points, ratio: widget.ratio!),
           PointingUpRepositoryImpl(points: points, ratio: widget.ratio!),
           ClosedFistRepositoryImpl(points: points, ratio: widget.ratio!),
+          ThreeRepositoryImpl(points: points, ratio: widget.ratio!)
         ];
 
         // Verify each gesture using functional programming
         gestureRepositories.forEach((repository) {
+          final bloc = BlocProvider.of<CameraBloC>(context);
           if (repository.verifyGesture()) {
-            print(repository.getGestureName());
+            if(bloc.state != repository.getGestureName() ) {
+              bloc.setLabel(repository.getGestureName());
+              print(repository.getGestureName());
+              if(bloc.state != 'Neutral') {
+                utils.playAudio(repository.getGestureSound());
+              }
+            }
           }
         });
       }

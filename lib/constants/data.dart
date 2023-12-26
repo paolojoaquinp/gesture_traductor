@@ -14,9 +14,8 @@ const models = [
     'model': 'face_mesh',
   },
   {
-    'title': 'Hands',
-    'text':
-        'The ability to perceive the shape and motion of hands can be a vital component in improving the user experience across a variety of technological domains and platforms.',
+    'title': 'Detector de gestos',
+    'text': 'La capacidad de percibir la forma y el movimiento de las manos puede ser un componente vital para mejorar la experiencia del usuario en una variedad de dominios y plataformas tecnológicas.',
     'image': 'assets/images/hand_green.png',
     'model': 'hands',
   },

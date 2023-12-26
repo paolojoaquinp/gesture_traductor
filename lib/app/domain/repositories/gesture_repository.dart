@@ -16,5 +16,5 @@ abstract class GestureRepository {
   String getGestureName();
   String getGestureDescription();
 
-  /* String getGestureSound(); */
+  String getGestureSound();
 }

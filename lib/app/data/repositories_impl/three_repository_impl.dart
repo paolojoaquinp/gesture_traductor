@@ -1,26 +1,28 @@
 import 'dart:ui';
 
-import 'package:flutter_with_mediapipe_1/app/domain/repositories/gesture_repository.dart';
+import '../../domain/repositories/gesture_repository.dart';
 import '../helpers/hands_utils.dart' as utils;
 
-class ClosedFistRepositoryImpl implements GestureRepository {
+
+class ThreeRepositoryImpl implements GestureRepository {
   List<Offset> points;
   double ratio;
-  ClosedFistRepositoryImpl({
+  ThreeRepositoryImpl({
     required this.points,
     required this.ratio,
   });
+
   @override
   String getGestureDescription() {
-    return 'esta es la descripcion del un puño cerrado';
+    return 'esta es una descripcion de un gesto de tres dedos';
   }
 
   @override
   String getGestureName() {
-    return 'Puño cerrado';
+    return 'Tres dedos';
   }
 
-  @override
+    @override
   bool thumbFingerVerify() {
     final sublist = points.sublist(0, 5).map((point) => point * ratio).toList();
     // calcular angulo entre los puntos 1,2,3 de 180 grados
@@ -30,6 +32,7 @@ class ClosedFistRepositoryImpl implements GestureRepository {
     final p5 = sublist[4];
     final angle2 = utils.angle(p2, p3, p4);
     final angle3 = utils.angle(p3, p4, p5);
+    // verificar que los 3 angulos sean mayores a 170 grados
     if (angle2 < 150 && angle3 < 145) {
       return true;
     }
@@ -45,9 +48,9 @@ class ClosedFistRepositoryImpl implements GestureRepository {
     final p3 = sublist[2];
     final p4 = sublist[3];
     final p5 = sublist[4];
-    final angle1 = utils.angle(p1, p3, p4);
-    final angle2 = utils.angle(p2, p3, p5);
-    if (angle1 < 45) {
+    final angle2 = utils.angle(p2, p3, p4);
+    final angle3 = utils.angle(p3, p4, p5);
+    if (angle2 > 170 && angle3 > 160) {
       return true;
     }
     return false;
@@ -63,9 +66,9 @@ class ClosedFistRepositoryImpl implements GestureRepository {
     final p3 = sublist[2];
     final p4 = sublist[3];
     final p5 = sublist[4];
-    final angle1 = utils.angle(p1, p3, p4);
-    final angle2 = utils.angle(p2, p3, p5);
-    if (angle1 < 45) {
+    final angle2 = utils.angle(p2, p3, p4);
+    final angle3 = utils.angle(p3, p4, p5);
+    if (angle2 > 170 && angle3 > 160) {
       return true;
     }
     return false;
@@ -87,9 +90,9 @@ class ClosedFistRepositoryImpl implements GestureRepository {
     final p3 = sublist[2];
     final p4 = sublist[3];
     final p5 = sublist[4];
-    final angle1 = utils.angle(p1, p3, p4);
-    final angle2 = utils.angle(p2, p3, p5);
-    if (angle1 < 45) {
+    final angle2 = utils.angle(p2, p3, p4);
+    final angle3 = utils.angle(p3, p4, p5);
+    if (angle2 > 170 && angle3 > 160) {
       return true;
     }
     return false;
@@ -105,9 +108,9 @@ class ClosedFistRepositoryImpl implements GestureRepository {
     final p3 = sublist[2];
     final p4 = sublist[3];
     final p5 = sublist[4];
-    final angle1 = utils.angle(p1, p3, p4);
+    final angle1 = utils.angle(p1, p3, p5);
     final angle2 = utils.angle(p2, p3, p5);
-    if (angle1 < 45) {
+    if (angle1 < 45 && angle2 < 90) {
       return true;
     }
     return false;
@@ -120,6 +123,6 @@ class ClosedFistRepositoryImpl implements GestureRepository {
   
   @override
   String getGestureSound() {
-    return 'sounds/closed_fist.wav';
+    return 'sounds/tres-v.wav';
   }
 }

@@ -1,13 +1,17 @@
 import 'dart:ui';
 
+import 'package:audioplayers/audioplayers.dart';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../constants/data.dart';
-import '../../../data/services/model_inference_service.dart';
-import '../../../data/services/service_locator.dart';
-import '../../../data/helpers/isolate_utils.dart';
+import '../../../../../constants/colors.dart';
+import '../../../../../constants/data.dart';
+import '../../../../data/services/model_inference_service.dart';
+import '../../../../data/services/service_locator.dart';
+import '../../../../data/helpers/isolate_utils.dart';
+import '../bloc/camera_bloc.dart';
 import 'widget/model_camera_preview.dart';
 
 class CameraPage extends StatefulWidget {
@@ -27,12 +31,14 @@ class _CameraPageState extends State<CameraPage> with WidgetsBindingObserver {
   late List<CameraDescription> _cameras;
   late CameraDescription _cameraDescription;
 
-  late bool _isRun;
+  bool _isRun = false;
   bool _predicting = false;
   bool _draw = false;
 
   late IsolateUtils _isolateUtils;
   late ModelInferenceService _modelInferenceService;
+
+  final player = AudioPlayer();
 
   @override
   void initState() {
@@ -55,6 +61,13 @@ class _CameraPageState extends State<CameraPage> with WidgetsBindingObserver {
     _isolateUtils.dispose();
     _modelInferenceService.inferenceResults = null;
     super.dispose();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final bloc = BlocProvider.of<CameraBloC>(context);
+    bloc.setLabel('Neutral');
   }
 
   Future<void> _initCamera() async {
@@ -102,22 +115,26 @@ class _CameraPageState extends State<CameraPage> with WidgetsBindingObserver {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async {
-        _imageStreamToggle;
-        Navigator.pop(context);
-        return false;
-      },
-      child: Scaffold(
-        backgroundColor: Colors.black,
-        appBar: _buildAppBar,
-        body: ModelCameraPreview(
-          cameraController: _cameraController,
-          index: widget.index,
-          draw: _draw,
+    final bloc = BlocProvider.of<CameraBloC>(context);
+    return Hero(
+      tag:'model',
+      child: WillPopScope(
+        onWillPop: () async {
+          _imageStreamToggle;
+          Navigator.pop(context);
+          return false;
+        },
+        child: Scaffold(
+          backgroundColor: darkPurple,
+          appBar: AppBar(title: Text(bloc.state)),
+          body: ModelCameraPreview(
+            cameraController: _cameraController,
+            index: widget.index,
+            draw: _draw,
+          ),
+          floatingActionButton: _buildFloatingActionButton,
+          floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         ),
-        floatingActionButton: _buildFloatingActionButton,
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       ),
     );
   }
@@ -132,27 +149,52 @@ class _CameraPageState extends State<CameraPage> with WidgetsBindingObserver {
         ),
       );
 
-  Row get _buildFloatingActionButton => Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          IconButton(
-            onPressed: () => _cameraDirectionToggle,
-            color: Colors.white,
-            iconSize: ScreenUtil().setWidth(30.0),
-            icon: const Icon(
-              Icons.cameraswitch,
+  Container get _buildFloatingActionButton => Container(
+    margin: EdgeInsets.only(
+      bottom: ScreenUtil().setHeight(20.0),
+      left: ScreenUtil().setWidth(20.0),
+      right: ScreenUtil().setWidth(20.0),
+    ),
+    padding: EdgeInsets.symmetric(
+      horizontal: ScreenUtil().setWidth(20.0),
+      vertical: ScreenUtil().setHeight(10.0),
+    ),
+    decoration: BoxDecoration(
+      color: Colors.white,
+      borderRadius: BorderRadius.circular(20.0),
+      boxShadow: [
+        BoxShadow(
+          color: Colors.black.withOpacity(0.2),
+          blurRadius: 10.0,
+          offset: const Offset(0.0, 5.0),
+        ),
+      ],
+    ),
+    child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            IconButton(
+              onPressed: () => _cameraDirectionToggle,
+              color: darkPurple,
+              iconSize: ScreenUtil().setWidth(30.0),
+              icon: const Icon(
+                Icons.cameraswitch,
+              ),
             ),
-          ),
-          IconButton(
-            onPressed: () => _imageStreamToggle,
-            color: Colors.white,
-            iconSize: ScreenUtil().setWidth(30.0),
-            icon: const Icon(
-              Icons.filter_center_focus,
+            TextButton(
+              onPressed: () => _imageStreamToggle,
+              child: Text(
+                (_isRun) ? 'Detener' : 'Iniciar',
+                style: TextStyle(
+                  color: darkPurple,
+                  fontSize: ScreenUtil().setSp(20.0),
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
             ),
-          ),
-        ],
-      );
+          ],
+        ),
+  );
 
   void get _imageStreamToggle {
     setState(() {
@@ -202,9 +244,12 @@ class _CameraPageState extends State<CameraPage> with WidgetsBindingObserver {
         );
       }
 
-      setState(() {
-        _predicting = false;
-      });
+      if (mounted) {
+        setState(() {
+          _predicting = false;
+        });
+      }
+
     }
   }
 }

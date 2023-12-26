@@ -18,7 +18,7 @@ class PointingUpRepositoryImpl implements GestureRepository {
 
   @override
   String getGestureName() {
-    return 'Dedo indice apuntando arriba';
+    return 'Indice apuntando arriba';
   }
 
   @override
@@ -118,6 +118,11 @@ class PointingUpRepositoryImpl implements GestureRepository {
   @override
   bool verifyGesture() {
     return thumbFingerVerify() && indexFingerVerify() && middleFingerVerify() && ringFingerVerify() && pinkyFingerVerify();
+  }
+  
+  @override
+  String getGestureSound() {
+    return 'sounds/uno.wav';
   }
 
 }

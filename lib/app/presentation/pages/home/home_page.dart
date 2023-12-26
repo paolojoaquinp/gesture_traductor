@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_with_mediapipe_1/constants/colors.dart' as colors;
 
 import '../../../../constants/data.dart';
 import 'widgets/model_card.dart';
@@ -14,18 +15,17 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  late PageController _pageController;
-  double _currentPageValue = 0.0;
-
+  double _currentPageValue = 2;
+  int _currentIndex = 0;
+  final PageController _pageController = PageController();
   @override
   void initState() {
     super.initState();
-    _pageController = PageController(viewportFraction: 0.8)
-      ..addListener(() {
-        setState(() {
-          _currentPageValue = _pageController.page!;
-        });
-      });
+  }
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
   }
 
   @override
@@ -34,20 +34,50 @@ class _HomePageState extends State<HomePage> {
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         centerTitle: true,
+        backgroundColor: Colors.transparent,
         title: Text(
-          'Select Your Model',
+          'Inicio',
           style: TextStyle(
               color: Colors.white,
               fontSize: ScreenUtil().setSp(28),
               fontWeight: FontWeight.bold),
         ),
       ),
-      body: Stack(
+      body: PageView(
+        controller: _pageController,
+        onPageChanged: (index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },
         children: [
-          _BackGroundImage(currentPageValue: _currentPageValue),
           _ModelPreview(
-            pageController: _pageController,
             currentPageValue: _currentPageValue,
+          ),
+          const AboutPage()
+        ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentIndex,
+        selectedItemColor: colors.primaryPurple,
+        selectedLabelStyle: const TextStyle(
+          fontWeight: FontWeight.bold,
+        ),
+        onTap: (index) {
+          _pageController.animateToPage(
+            index,
+            duration: const Duration(milliseconds: 200),
+            curve: Curves.easeIn,
+          );
+        },
+        items: [
+          const BottomNavigationBarItem(
+            icon: Icon(Icons.home, color: colors.primaryPurple),
+            label: 'Inicio',
+          ),
+          const BottomNavigationBarItem(
+            icon: Icon(Icons.info, color: colors.primaryPurple),
+            label: 'Acerca de',
           ),
         ],
       ),
@@ -55,33 +85,14 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-class _BackGroundImage extends StatelessWidget {
-  const _BackGroundImage({
-    Key? key,
-    required this.currentPageValue,
-  }) : super(key: key);
-
-  final double currentPageValue;
-
+class AboutPage extends StatelessWidget {
+  const AboutPage({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage(
-            models[currentPageValue.round()]['image']!,
-          ),
-          fit: BoxFit.cover,
-        ),
-      ),
-      child: BackdropFilter(
-        filter: ImageFilter.blur(
-          sigmaX: 5.0,
-          sigmaY: 5.0,
-        ),
-        child: Container(
-          color: Colors.black.withOpacity(0.15),
-        ),
+      color: colors.darkPurple,
+      child: const Center(
+        child: Text('Acerca de',style: TextStyle(color: Colors.white)),
       ),
     );
   }
@@ -90,30 +101,26 @@ class _BackGroundImage extends StatelessWidget {
 class _ModelPreview extends StatelessWidget {
   const _ModelPreview({
     Key? key,
-    required this.pageController,
     required this.currentPageValue,
   }) : super(key: key);
-
-  final PageController pageController;
   final double currentPageValue;
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Container(
-        height: ScreenUtil().setHeight(450.0),
-        child: PageView.builder(
-          controller: pageController,
-          physics: const BouncingScrollPhysics(),
-          itemCount: models.length,
-          itemBuilder: (context, index) {
-            var scale = (currentPageValue - index).abs();
-            return ModelCard(
-              index: index,
-              scale: scale,
-            );
-          },
-        ),
+    return Container(
+      padding: EdgeInsets.only(
+        top: ScreenUtil().setHeight(100.0),
+        left: ScreenUtil().setWidth(20.0),
+        right: ScreenUtil().setWidth(20.0),
+      ),
+      width: double.infinity,
+      color: colors.primaryPurple,
+      child: Column(
+        children: [
+          ModelCard(
+            index: currentPageValue.toInt(),
+          ),
+        ],
       ),
     );
   }

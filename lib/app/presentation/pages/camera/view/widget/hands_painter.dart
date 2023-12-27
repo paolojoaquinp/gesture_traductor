@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_with_mediapipe_1/constants/colors.dart';
 
 class HandsPainter extends CustomPainter {
   final List<Offset> points;
@@ -15,11 +16,11 @@ class HandsPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     if (points.isNotEmpty) {
       var pointPaint = Paint()
-        ..color = Colors.deepOrange
+        ..color = darkPurple
         ..strokeWidth = 8;
 
       var linePaint = Paint()
-        ..color = Colors.indigo
+        ..color = Colors.green
         ..strokeWidth = 2;
 
       canvas.drawPoints(

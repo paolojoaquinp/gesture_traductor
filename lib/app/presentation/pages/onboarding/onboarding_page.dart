@@ -40,8 +40,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
   Widget build(BuildContext context) {
     final paddingPage = MediaQuery.of(context).size.width * 0.05;
     final raisedButtonStyle = ElevatedButton.styleFrom(
-      foregroundColor: Colors.white,
-      backgroundColor: colors.darkPurple,
+      onPrimary: Colors.white,
+      primary: colors.darkPurple,
       minimumSize: const Size(double.infinity, 46),
       padding: const EdgeInsets.symmetric(horizontal: 16),
       shape: const RoundedRectangleBorder(

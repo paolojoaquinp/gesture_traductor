@@ -2,6 +2,13 @@
 
 Este proyecto es una aplicación móvil desarrollada en Flutter que traduce señas a texto.
 
+## Aviso
+
+- Cambiar en `pubspec.yaml` la propiedad name: de la siguiente forma
+```dart
+name: flutter_with_mediapipe_1
+```
+
 ## Características
 
 - Traducción en tiempo real de señas a texto.

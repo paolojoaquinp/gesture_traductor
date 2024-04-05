@@ -6,7 +6,7 @@ Este proyecto es una aplicación móvil desarrollada en Flutter que traduce señ
 
 - Cambiar en `pubspec.yaml` la propiedad name: de la siguiente forma
 ```dart
-name: flutter_with_mediapipe_1
+name: gesture_traductor
 ```
 
 ## Características

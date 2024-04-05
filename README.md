@@ -1,57 +1,35 @@
-# <p align="center"> Flutter Pipe </p>
+# Traductor de Señas en Flutter
 
-![platform-ios](https://img.shields.io/badge/platform-ios%20%7C%20android-lightgrey)
+Este proyecto es una aplicación móvil desarrollada en Flutter que traduce señas a texto.
 
-<br>
-<br>
+## Características
 
-## <p align="center"> 🌟 Flutter with MediaPipe Project 🌟 </p>
-<br>
-<br>
-<br>
+- Traducción en tiempo real de señas a texto.
+- Soporte para múltiples lenguajes de señas.
+- Interfaz de usuario intuitiva y fácil de usar.
 
-This is Flutter project using MediaPipe ML models.
-| Face Detection | Face Mesh |
-| :----: | :----: |
-| <img src="assets/images/smile_blue.png"> | <img src="assets/images/smile_yellow.png"> |
+## Requisitos
 
-| Hand Detection | Pose Estimation |
-| :----: | :----: |
-| <img src="assets/images/hand_green.png"> | <img src="assets/images/pose_red.png"> |
+- Flutter sdk >=2.12.0 <3.0.0
 
-<br>
-<br>
-<br>
+## Instalación
 
-## Features
+1. Clona este repositorio.
+2. Navega al directorio del proyecto en tu terminal.
+3. Ejecuta `flutter pub get` para instalar las dependencias.
+4. Ejecuta `flutter run` para iniciar la aplicación en un emulador o dispositivo conectado.
 
-- Detect face on real-time
-- Detect face landmark on real-time
-- Detect hand on real-time
-- Estimate body pose on real-time
-- Visualize inference results
+## Uso
 
+1. Abre la aplicación.
+2. Permite el acceso a la cámara.
+3. Realiza las señas frente a la cámara.
+4. La aplicación traducirá las señas a texto en tiempo real.
 
-<br>
-<br>
-<br>
+## Contribuciones
 
+Las contribuciones son bienvenidas. Por favor, abre un issue o realiza un pull request si deseas contribuir al proyecto.
 
-## MediaPipe
+## Licencia
 
-![mediapipe](assets/images/mediapipe.png)
-<br>
-MediaPipe offers cross-platform, customizable ML solutions for live and streaming media.
-#### [mediapipe.dev](https://mediapipe.dev/)
-#### [mediapipe code](https://github.com/google/mediapipe)
-
-
-<br>
-<br>
-<br>
-
-## App Store & Play Store
-
-
-#### [App Store](https://apps.apple.com/us/app/flutter-pipe/id1583450010)
-#### [Play Store](https://play.google.com/store/apps/details?id=com.jdev.fmediapipe)
+Este proyecto está licenciado bajo los términos de la licencia MIT.

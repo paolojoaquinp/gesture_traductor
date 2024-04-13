@@ -19,6 +19,8 @@ name: gesture_traductor
 
 - Flutter sdk >=2.12.0 <3.0.0
 
+Puedes encontrar todas las versiones de flutter [aqui](https://docs.flutter.dev/release/archive?tab=windows#stable-channel-windows)
+
 ## Instalación
 
 1. Clona este repositorio.

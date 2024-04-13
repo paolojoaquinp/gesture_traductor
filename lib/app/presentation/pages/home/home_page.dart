@@ -92,7 +92,9 @@ class AboutPage extends StatelessWidget {
     return Container(
       color: colors.darkPurple,
       child: const Center(
-        child: Text('Acerca de',style: TextStyle(color: Colors.white)),
+        child: Text("
+          Texto en construccion - vuelva pronto
+        ",style: TextStyle(color: Colors.white)),
       ),
     );
   }

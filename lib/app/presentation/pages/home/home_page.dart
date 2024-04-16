@@ -19,6 +19,7 @@ class _HomePageState extends State<HomePage> {
   double _currentPageValue = 2;
   int _currentIndex = 0;
   final PageController _pageController = PageController();
+  
   @override
   void initState() {
     super.initState();

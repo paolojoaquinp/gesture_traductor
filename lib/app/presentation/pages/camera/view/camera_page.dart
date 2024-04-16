@@ -63,12 +63,14 @@ class _CameraPageState extends State<CameraPage> with WidgetsBindingObserver {
     super.dispose();
   }
 
+  // Observador: verifica cambios
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
     final bloc = BlocProvider.of<CameraBloC>(context);
     bloc.setLabel('Neutral');
   }
+
 
   Future<void> _initCamera() async {
     _cameras = await availableCameras();
@@ -124,6 +126,7 @@ class _CameraPageState extends State<CameraPage> with WidgetsBindingObserver {
           Navigator.pop(context);
           return false;
         },
+        // Interface
         child: Scaffold(
           backgroundColor: darkPurple,
           appBar: AppBar(title: Text(bloc.state)),

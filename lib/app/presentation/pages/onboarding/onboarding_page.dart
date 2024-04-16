@@ -14,6 +14,7 @@ class OnboardingPage extends StatefulWidget {
 class _OnboardingPageState extends State<OnboardingPage> {
   late PageController _pageController; // Declare a PageController
   int _currentPage = 0;
+  
   @override
   void initState() {
     super.initState();

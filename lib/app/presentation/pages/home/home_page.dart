@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_with_mediapipe_1/constants/colors.dart' as colors;
 
 import '../../../../constants/data.dart';
+import 'profile/profile_page.dart';
 import 'widgets/model_card.dart';
 
 class HomePage extends StatefulWidget {
@@ -22,6 +23,7 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
   }
+
   @override
   void dispose() {
     _pageController.dispose();
@@ -54,7 +56,8 @@ class _HomePageState extends State<HomePage> {
           _ModelPreview(
             currentPageValue: _currentPageValue,
           ),
-          const AboutPage()
+          const AboutPage(),
+          const ProfilePage(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -79,6 +82,10 @@ class _HomePageState extends State<HomePage> {
             icon: Icon(Icons.info, color: colors.primaryPurple),
             label: 'Acerca de',
           ),
+          const BottomNavigationBarItem(
+            icon: Icon(Icons.people, color: colors.primaryPurple),
+            label: 'Perfil',
+          ),
         ],
       ),
     );
@@ -92,9 +99,10 @@ class AboutPage extends StatelessWidget {
     return Container(
       color: colors.darkPurple,
       child: const Center(
-        child: Text("
-          Texto en construccion - vuelva pronto
-        ",style: TextStyle(color: Colors.white)),
+        child: Text(
+          'Texto en construccion - vuelva pronto',
+          style: TextStyle(color: Colors.white),
+        ),
       ),
     );
   }

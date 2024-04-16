@@ -14,7 +14,7 @@ class ModelCard extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
-  final int index;
+  final int index; // 2
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +50,11 @@ class ModelCard extends StatelessWidget {
     );
   }
   void _onTapCamera(BuildContext context) {
+    // Iniciar modelo de IA
     locator<ModelInferenceService>().setModelConfig(index);
+    // Hands().setModelConfig(index)
+
+    // Redirigir a la camara
     Navigator.of(context).push(
       PageRouteBuilder(
         pageBuilder: (context, animation, secondaryAnimation) => CameraPage(index: index),

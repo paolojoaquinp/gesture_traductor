@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 
 
 double angle(
-      Offset firstLandmark,
+      Offset firstLandmark, // (x,y)
       Offset midLandmark,
       Offset lastLandmark
   ) {

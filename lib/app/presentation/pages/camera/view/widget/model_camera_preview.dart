@@ -124,17 +124,18 @@ enum GestureType {
 }
 
 class _ModelPainterState extends State<_ModelPainter> {
-  Offset? p1;
+  Offset? p1; // (x, y)
   Offset? p2;
   Offset? p3;
   Offset? p4;
   Offset? p5;
 
 
+  // Observador: que verfica los gestos
   @override
   void didUpdateWidget(covariant _ModelPainter oldWidget) {
     if(widget.customPainter != oldWidget.customPainter && (widget.customPainter is HandsPainter)) {
-      final points = (widget.customPainter as HandsPainter).points;
+      final points = (widget.customPainter as HandsPainter).points; // [(x1,y1),(x2,y2)]
       // obtener el angulo de los 3 primeros offset
       if (points.length >= 3) {
         points.map((point) => point * widget.ratio!).toList();

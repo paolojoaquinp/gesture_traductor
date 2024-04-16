@@ -50,7 +50,7 @@ class ModelInferenceService {
         handler = runHandDetector;
         break;
       case Models.Hands:
-        model = locator<Hands>();
+        model = locator<Hands>(); // Hands()
         handler = runHandDetector;
         break;
       case Models.Pose:

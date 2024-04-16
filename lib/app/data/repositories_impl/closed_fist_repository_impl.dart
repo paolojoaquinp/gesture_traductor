@@ -10,6 +10,7 @@ class ClosedFistRepositoryImpl implements GestureRepository {
     required this.points,
     required this.ratio,
   });
+  
   @override
   String getGestureDescription() {
     return 'esta es la descripcion del un puño cerrado';

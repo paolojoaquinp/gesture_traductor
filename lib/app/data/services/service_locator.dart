@@ -14,3 +14,5 @@ void setupLocator() {
   locator.registerLazySingleton<ModelInferenceService>(
       () => ModelInferenceService());
 }
+
+// Singleton

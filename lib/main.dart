@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
           builder: (context , child) {
             return MaterialApp(
                 debugShowCheckedModeBanner: false,
-                title: 'Flutter with Mediapipe',
+                title: 'Traductor de señas',
                 theme: ThemeData(
                   appBarTheme: const AppBarTheme(
                     elevation: 0.0,

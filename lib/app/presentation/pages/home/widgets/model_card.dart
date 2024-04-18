@@ -36,7 +36,7 @@ class ModelCard extends StatelessWidget {
                 flex: 2,
                 child: Align(
                   alignment: Alignment.centerRight,
-                  child: Icon(Icons.waving_hand, color: colors.primaryPurple, size: 50),
+                  child: Icon(Icons.hail_rounded, color: colors.primaryPurple, size: 50),
                 ),
               ),
               Expanded(

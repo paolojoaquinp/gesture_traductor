@@ -1,0 +1,26 @@
+{
+    "page": "about_us",
+    "info": {
+       "title": "About Us",
+       "description": "We are a team of professionals who are dedicated to providing the best service to our clients. We have been in business for over 10 years and have helped thousands of people achieve their goals. Our team is made up of experts in their field who are passionate about what they do. We are committed to providing the highest quality service to our clients and are always looking for ways to improve. We are here to help you succeed and will do everything we can to make sure you are satisfied with our service."
+    },
+  
+    "page_perfil": "my_perfil",
+    "info_perfil": {
+          "personal_info": "Personal Info",
+          "contact_details": "Contact Details",
+          "work_experience": "Work Experience",
+          "education": "Education",
+          "appreciation": "Appreciation",
+          "logout": "Logout"
+    },
+  
+    "navigation_tab":"tab",
+    "info_tab":{
+      "home": "Home",
+      "news": "News",
+      "books": "Books",
+      "works": "Works"
+    }
+  }
+  

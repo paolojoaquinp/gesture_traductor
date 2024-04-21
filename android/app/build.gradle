@@ -28,7 +28,7 @@ apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 android {
     namespace "com.jdev.flutter_with_mediapipe_1"
     compileSdkVersion flutter.compileSdkVersion
-    ndkVersion flutter.ndkVersion
+    ndkVersion "23.1.7779620"
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8

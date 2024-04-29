@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_with_mediapipe_1/app/presentation/pages/onboarding/widgets/step_card.dart';
 import 'package:flutter_with_mediapipe_1/constants/colors.dart' as colors;
 
+import '../../../data/services/user_preferences.dart';
 import '../home/home_page.dart';
 
 
@@ -86,11 +87,10 @@ class _OnboardingPageState extends State<OnboardingPage> {
                     style: raisedButtonStyle,
                     child:  Text(_currentPage == 2 ? 'Entiendo' : 'Siguiente'),
                     onPressed: () {
-                      if(_currentPage == 2) {        
-                        Navigator.pushAndRemoveUntil(context, 
-                          MaterialPageRoute(builder: (_) => const HomePage()),
-                          (route) => false
-                        );
+                      if(_currentPage == 2) {       
+                        final prefs = UserPreferences();
+                        prefs.defaultRoute = '/home';
+                        Navigator.pushNamed(context, prefs.defaultRoute);
                       } else {
                         _pageController.nextPage(
                           duration: const Duration(milliseconds: 300),

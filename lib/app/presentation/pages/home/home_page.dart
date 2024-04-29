@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_with_mediapipe_1/app/presentation/pages/about_us/about_us.dart';
 import 'package:flutter_with_mediapipe_1/constants/colors.dart' as colors;
 
 import '../../../../constants/data.dart';
@@ -57,7 +58,7 @@ class _HomePageState extends State<HomePage> {
           _ModelPreview(
             currentPageValue: _currentPageValue,
           ),
-          const AboutPage(),
+          AboutUs(),
           const ProfilePage(),
         ],
       ),
@@ -93,21 +94,6 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-class AboutPage extends StatelessWidget {
-  const AboutPage({Key? key}) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: colors.darkPurple,
-      child: const Center(
-        child: Text(
-          'Texto en construccion - vuelva pronto',
-          style: TextStyle(color: Colors.white),
-        ),
-      ),
-    );
-  }
-}
 
 class _ModelPreview extends StatelessWidget {
   const _ModelPreview({

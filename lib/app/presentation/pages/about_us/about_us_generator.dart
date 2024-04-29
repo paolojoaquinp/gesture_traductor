@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_with_mediapipe_1/app/presentation/pages/onboarding/widgets/about_us.dart';
+import 'about_us_card.dart';
 
-class AboutUsGenerator {
-  static List<Widget> generateAboutUsPages() {
-    return <Widget>[
-      AboutUs(
+
+ const List<Widget> aboutUsPages = [
+      AboutUsCard(
         imagenUrl:
             'https://inetep.edu.mx/wp-content/uploads/2017/06/manosquehablan.png',
         colorInicio: Colors.purple,
@@ -16,7 +15,7 @@ class AboutUsGenerator {
         description2:
             'Nuestro equipo utiliza Flutter y tecnologías avanzadas para desarrollar una aplicación que reconoce y traduce el lenguaje de señas en tiempo real',
       ),
-      AboutUs(
+      AboutUsCard(
         imagenUrl:
             'https://inetep.edu.mx/wp-content/uploads/2017/06/manosquehablan.png',
         colorInicio: Colors.blue,
@@ -29,5 +28,3 @@ class AboutUsGenerator {
             'Nuestra app móvil está dedicada a hacer que la comunicación sea más accesible al traducir el lenguaje de señas, impulsando la inclusión y la conexión entre personas',
       ),
     ];
-  }
-}

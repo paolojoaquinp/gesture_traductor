@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class AboutUs extends StatelessWidget {
+class AboutUsCard extends StatelessWidget {
   final String imagenUrl;
   final Color colorInicio;
   final Color colorFin;
@@ -9,7 +9,7 @@ class AboutUs extends StatelessWidget {
   final String title2;
   final String description2;
 
-  const AboutUs({
+  const AboutUsCard({
     Key? key,
     required this.imagenUrl,
     required this.colorInicio,
@@ -40,7 +40,7 @@ class AboutUs extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Text(
               title1,
-              style: TextStyle(
+              style:const TextStyle(
                 fontSize: 34,
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
@@ -53,7 +53,7 @@ class AboutUs extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Text(
               description1,
-              style: TextStyle(
+              style:const TextStyle(
                 fontSize: 24,
                 color: Colors.white,
                 fontFamily: 'Caveat', // Fuente
@@ -65,7 +65,7 @@ class AboutUs extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Text(
               title2,
-              style: TextStyle(
+              style:const TextStyle(
                 fontSize: 33,
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
@@ -78,7 +78,7 @@ class AboutUs extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Text(
               description2,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 24,
                 color: Colors.white,
                 fontFamily: 'Caveat', // Fuente

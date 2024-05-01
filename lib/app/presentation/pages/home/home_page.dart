@@ -1,11 +1,10 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_with_mediapipe_1/app/presentation/pages/about_us/about_us.dart';
 import 'package:flutter_with_mediapipe_1/constants/colors.dart' as colors;
 
-import '../../../../constants/data.dart';
+
+import '../../../../generated/l10n.dart';
 import 'profile/profile_page.dart';
 import 'widgets/model_card.dart';
 
@@ -46,6 +45,7 @@ class _HomePageState extends State<HomePage> {
               fontSize: ScreenUtil().setSp(28),
               fontWeight: FontWeight.bold),
         ),
+        
       ),
       body: PageView(
         controller: _pageController,
@@ -55,6 +55,7 @@ class _HomePageState extends State<HomePage> {
           });
         },
         children: [
+          // HomePage -> ModalPreview
           _ModelPreview(
             currentPageValue: _currentPageValue,
           ),
@@ -77,8 +78,8 @@ class _HomePageState extends State<HomePage> {
         },
         items: [
           const BottomNavigationBarItem(
-            icon: Icon(Icons.home, color: colors.primaryPurple),
-            label: 'Inicio',
+            icon:  Icon(Icons.home, color: colors.primaryPurple),
+            label:"Home"
           ),
           const BottomNavigationBarItem(
             icon: Icon(Icons.info, color: colors.primaryPurple),

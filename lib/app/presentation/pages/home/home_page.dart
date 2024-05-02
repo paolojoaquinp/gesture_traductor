@@ -77,17 +77,17 @@ class _HomePageState extends State<HomePage> {
           );
         },
         items: [
-          const BottomNavigationBarItem(
-            icon:  Icon(Icons.home, color: colors.primaryPurple),
-            label:"Home"
+           BottomNavigationBarItem(
+            icon: const Icon(Icons.home, color: colors.primaryPurple),
+            label: S.of(context).navigationTabHome,
           ),
-          const BottomNavigationBarItem(
-            icon: Icon(Icons.info, color: colors.primaryPurple),
-            label: 'Acerca de',
+          BottomNavigationBarItem(
+            icon: const Icon(Icons.info, color: colors.primaryPurple),
+            label: S.of(context).navigationTabAboutUs,
           ),
-          const BottomNavigationBarItem(
-            icon: Icon(Icons.people, color: colors.primaryPurple),
-            label: 'Perfil',
+          BottomNavigationBarItem(
+            icon: const Icon(Icons.people, color: colors.primaryPurple),
+            label: S.of(context).navigationTabProfile,
           ),
         ],
       ),

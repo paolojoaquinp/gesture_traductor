@@ -1,26 +1,19 @@
-{
-    "page": "about_us",
-    "info": {
-       "title": "Sobre nosotros",
-       "description": "Somos un equipo de profesionales dedicados a brindar el mejor servicio a nuestros clientes. Llevamos más de 10 años en el negocio y hemos ayudado a miles de personas a alcanzar sus objetivos. Nuestro equipo está formado por expertos en su campo que son apasionados por lo que hacen. Estamos comprometidos a brindar el mejor servicio a nuestros clientes y siempre estamos buscando maneras de mejorar. Estamos aquí para ayudarte a tener éxito y haremos todo lo posible para asegurarnos de que estés satisfecho con nuestro servicio."
-    },
-  
-    "page_perfil": "my_perfil",
-    "info_perfil": {
-          "personal_info": "Información Personal",
-          "contact_details": "Detalles de Contacto",
-          "work_experience": "Experiencia laboral",
-          "edcuation": "Educación",
-          "appreciation": "Apreciación",
-          "logout": "Cerrar sesión"
-    },
-  
-    "navigation_tab":"tab",
-    "info_tab":{
-      "home": "Inicio",
-      "news": "Noticias",
-      "books": "Libros",
-      "works": "Trabajos"
-    }
-  }
-  
+{ 
+  "homeTitle": "Home",
+  "cardGestureDetectorTitle": "Detector de gestos",
+  "cardGestureDetectorDescription": "La capacidad de percibir, la forma y el movimiento de las manos puede ser un componente vital para mejorar la experiencia del usuario en una variedad de aplicaciones y dispositivos.",
+  "pageAboutUs": "about us",
+  "infoTitle": "Sobre Nosotros",
+  "infoDescription": "Somos un equipo de profesionales dedicados a brindar el mejor servicio a nuestros clientes. Llevamos más de 10 años en el negocio y hemos ayudado a miles de personas a alcanzar sus objetivos. Nuestro equipo está formado por expertos en su campo que son apasionados por lo que hacen. Estamos comprometidos a brindar el mejor servicio a nuestros clientes y siempre estamos buscando maneras de mejorar. Estamos aquí para ayudarte a tener éxito y haremos todo lo posible para asegurarnos de que estés satisfecho con nuestro servicio.",
+  "profileTitle": "Mi perfil",
+  "profilePersonalInfo": "Información Personal",
+  "profileContactDetails": "Detalles de contacto",
+  "profileWorkExperience": "Experiencia Laboral",
+  "profileEducation": "Educacion",
+  "profileAppreciation": "Apreciación",
+  "profileLogout": "Cerrar sesión",
+  "navigationTab": "tab",
+  "navigationTabHome": "Inicio",
+  "navigationTabAboutUs": "Sobre nosotros",
+  "navigationTabProfile": "Perfil"
+}

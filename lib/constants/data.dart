@@ -1,4 +1,8 @@
-const models = [
+import '../generated/l10n.dart';
+
+final s = S.current;
+
+final models = [
   {
     'title': 'Face Detection',
     'text':
@@ -14,8 +18,8 @@ const models = [
     'model': 'face_mesh',
   },
   {
-    'title': 'Detector de gestos',
-    'text': 'La capacidad de percibir la forma y el movimiento de las manos puede ser un componente vital para mejorar la experiencia del usuario en una variedad de dominios y plataformas tecnológicas.',
+    'title': s.cardGestureDetectorTitle,
+    'text':  s.cardGestureDetectorDescription,
     'image': 'assets/images/hand_green.png',
     'model': 'hands',
   },

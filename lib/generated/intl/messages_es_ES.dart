@@ -21,5 +21,31 @@ class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'es_ES';
 
   final messages = _notInlinedMessages(_notInlinedMessages);
-  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{};
+  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "cardGestureDetectorDescription": MessageLookupByLibrary.simpleMessage(
+            "La capacidad de percibir, la forma y el movimiento de las manos puede ser un componente vital para mejorar la experiencia del usuario en una variedad de aplicaciones y dispositivos."),
+        "cardGestureDetectorTitle":
+            MessageLookupByLibrary.simpleMessage("Detector de gestos"),
+        "homeTitle": MessageLookupByLibrary.simpleMessage("Home"),
+        "infoDescription": MessageLookupByLibrary.simpleMessage(
+            "Somos un equipo de profesionales dedicados a brindar el mejor servicio a nuestros clientes. Llevamos más de 10 años en el negocio y hemos ayudado a miles de personas a alcanzar sus objetivos. Nuestro equipo está formado por expertos en su campo que son apasionados por lo que hacen. Estamos comprometidos a brindar el mejor servicio a nuestros clientes y siempre estamos buscando maneras de mejorar. Estamos aquí para ayudarte a tener éxito y haremos todo lo posible para asegurarnos de que estés satisfecho con nuestro servicio."),
+        "infoTitle": MessageLookupByLibrary.simpleMessage("Sobre Nosotros"),
+        "navigationTab": MessageLookupByLibrary.simpleMessage("tab"),
+        "navigationTabAboutUs":
+            MessageLookupByLibrary.simpleMessage("Sobre nosotros"),
+        "navigationTabHome": MessageLookupByLibrary.simpleMessage("Inicio"),
+        "navigationTabProfile": MessageLookupByLibrary.simpleMessage("Perfil"),
+        "pageAboutUs": MessageLookupByLibrary.simpleMessage("about us"),
+        "profileAppreciation":
+            MessageLookupByLibrary.simpleMessage("Apreciación"),
+        "profileContactDetails":
+            MessageLookupByLibrary.simpleMessage("Detalles de contacto"),
+        "profileEducation": MessageLookupByLibrary.simpleMessage("Educacion"),
+        "profileLogout": MessageLookupByLibrary.simpleMessage("Cerrar sesión"),
+        "profilePersonalInfo":
+            MessageLookupByLibrary.simpleMessage("Información Personal"),
+        "profileTitle": MessageLookupByLibrary.simpleMessage("Mi perfil"),
+        "profileWorkExperience":
+            MessageLookupByLibrary.simpleMessage("Experiencia Laboral")
+      };
 }

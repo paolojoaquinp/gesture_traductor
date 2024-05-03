@@ -1,24 +1,19 @@
 {
-    "page": "about_us",
-    "info": {
-       "title": "About Us",
-       "description": "We are a team of professionals who are dedicated to providing the best service to our clients. We have been in business for over 10 years and have helped thousands of people achieve their goals. Our team is made up of experts in their field who are passionate about what they do. We are committed to providing the highest quality service to our clients and are always looking for ways to improve. We are here to help you succeed and will do everything we can to make sure you are satisfied with our service."
-    },
-    "page_perfil": "my_perfil",
-    "info_perfil": {
-          "personal_info": "Personal Info",
-          "contact_details": "Contact Details",
-          "work_experience": "Work Experience",
-          "education": "Education",
-          "appreciation": "Appreciation",
-          "logout": "Logout"
-    },
-    "navigation_tab":"tab",
-    "info_tab": {
-      "home": "Home",
-      "news": "News",
-      "books": "Books",
-      "works": "Works"
-    }
-  }
-  
+  "homeTitle": "Home",
+  "cardGestureDetectorTitle": "Gesture Detector",
+  "cardGestureDetectorDescription": "The ability to perceive the shape and movement of hands can be a vital component in improving the user experience in a variety of applications and devices.",
+  "pageAboutUs": "about us",
+  "infoTitle": "About Us",
+  "infoDescription": "We are a team of professionals who are dedicated to providing the best service to our clients. We have been in business for over 10 years and have helped thousands of people achieve their goals. Our team is made up of experts in their field who are passionate about what they do. We are committed to providing the highest quality service to our clients and are always looking for ways to improve. We are here to help you succeed and will do everything we can to make sure you are satisfied with our service.",
+  "profileTitle": "My Profile",
+  "profilePersonalInfo": "Personal Info",
+  "profileContactDetails": "Contact Details",
+  "profileWorkExperience": "Work Experience",
+  "profileEducation": "Education",
+  "profileAppreciation": "Appreciation",
+  "profileLogout": "Logout",
+  "navigationTab": "Tab",
+  "navigationTabHome": "Home",
+  "navigationTabAboutUs": "About us",
+  "navigationTabProfile": "Profile"
+}
